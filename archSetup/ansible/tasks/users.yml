@@ -1,0 +1,16 @@
+- name: Create user with sudo
+  user:
+    name: "{{ user }}"
+    groups: wheel
+    shell: /bin/zsh
+
+- name: Allow sudo for wheel
+  copy:
+    content: "%wheel ALL=(ALL) ALL"
+    dest: /etc/sudoers.d/wheel
+    validate: "visudo -cf %s"
+
+- name: Create user with sudo
+  user:
+    name: "visitor"
+    shell: /bin/zsh

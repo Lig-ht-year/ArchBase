@@ -1,0 +1,12 @@
+
+    - name: Enable NetworkManager
+      systemd:
+        name: NetworkManager
+        enabled: yes
+        state: started
+
+    - name: Enable gdm
+      systemd:
+        name: gdm
+        enabled: yes
+        state: started

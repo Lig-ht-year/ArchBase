@@ -1,0 +1,22 @@
+{
+  "version": "2.5.0",
+  "disk_config": "auto",
+  "filesystem": "btrfs",
+  "hostname": "{{ hostname }}",
+  "!users": [
+    {
+      "username": "{{ username }}",
+      "password": "{{ password | default('arch') }}",
+      "!sudo": true
+    }
+  ],
+  "profile": "minimal",
+  "audio": "pipewire",
+  "kernels": ["linux"],
+  "nic": {
+    "dhcp": true,
+    "dns": null,
+    "gateway": null,
+    "iface": null
+  }
+}
